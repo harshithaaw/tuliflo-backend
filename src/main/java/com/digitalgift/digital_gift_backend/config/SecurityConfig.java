@@ -37,7 +37,11 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(List.of("*"));  // Allow all origins temporarily
+        configuration.setAllowedOrigins(Arrays.asList(
+            "http://localhost:5173",                    // Local development
+            "https://tuliflo-frontend.vercel.app",      // ✅ Add your Vercel URL
+            "https://tuliflo-backend.onrender.com"      // ✅ Add your Render URL
+        ));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
