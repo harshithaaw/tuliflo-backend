@@ -13,7 +13,11 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/gifts")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {
+    "http://localhost:5173",
+    "https://tuliflo-frontend.vercel.app",
+    "https://tuliflo-backend.onrender.com"
+})
 public class GiftController {
     
     @Autowired
