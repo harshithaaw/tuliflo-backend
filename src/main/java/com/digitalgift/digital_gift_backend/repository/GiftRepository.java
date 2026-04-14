@@ -10,5 +10,5 @@ import java.util.List;
 public interface GiftRepository extends JpaRepository<Gift, Long> {
     
     Optional<Gift> findByShareableLink(String shareableLink);
-    List<Gift> findByUserId(Long userId);
+    List<Gift> findByUserIdOrderByCreatedAtDesc(Long userId);
 }

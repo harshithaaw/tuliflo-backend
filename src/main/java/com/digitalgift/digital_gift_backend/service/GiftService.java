@@ -45,9 +45,9 @@ public class GiftService {
                 .orElseThrow(() -> new RuntimeException("Gift not found"));
     }
     
-    // Get all gifts created by a user (for dashboard)
+    // Get all gifts created by a user (for dashboard) - sorted by date descending
     public List<Gift> getUserGifts(Long userId) {
-        return giftRepository.findByUserId(userId);
+        return giftRepository.findByUserIdOrderByCreatedAtDesc(userId);
     }
 }
 // // Step 1: Verify user exists
